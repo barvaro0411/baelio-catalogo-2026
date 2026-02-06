@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="BAELIO 2026 - Lavit Parfums. Descubre nuestra colección exclusiva de 66 fragancias femeninas premium.">
+    <title>Lavit Parfums - BAELIO 2026</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>BAELIO</h1>
+                    <span class="logo-subtitle">2026</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="mujer.html" class="nav-link">Mujer</a>
+                    <a href="hombre.html" class="nav-link">Hombre</a>
+                    <a href="premium.html" class="nav-link">Premium</a>
+                    <a href="teen.html" class="nav-link">Teen</a>
+                    <a href="lavit.html" class="nav-link active">Lavit</a>
+                    <a href="sol.html" class="nav-link">Lavit Sol</a>
+                    <a href="index.html#contacto" class="nav-link">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-small">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Lavit Parfums</h2>
+                <p class="hero-subtitle">6 fragancias frescas y tropicales - Body Splash Collection</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalogo" class="catalog">
+        <div class="container">
+            <!-- Search Controls -->
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input"
+                        placeholder="Buscar por código o nombre...">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productsGrid" class="products-grid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+
+            <!-- No Results Message -->
+            <div id="noResults" class="no-results" style="display: none;">
+                <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">BAELIO</h3>
+                    <p class="footer-text">Tu destino para fragancias premium</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contacto</h4>
+                    <p class="footer-text">WhatsApp: <a href="https://wa.me/1234567890" class="footer-link">+1 234 567
+                            890</a></p>
+                    <p class="footer-text">Email: <a href="mailto:info@baelio.com"
+                            class="footer-link">info@baelio.com</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Horario</h4>
+                    <p class="footer-text">Lunes a Viernes: 9:00 - 18:00</p>
+                    <p class="footer-text">Sábados: 10:00 - 14:00</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 BAELIO. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="script-lavit.js"></script>
+</body>
+
+</html>
