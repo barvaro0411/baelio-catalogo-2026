@@ -162,6 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
             hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
         }
     });
+
+    // Mobile Menu Logic
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+    if (menuBtn && nav) {
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuBtn.innerHTML = nav.classList.contains('active') ? '✕' : '☰';
+        });
+    }
 });
 
 // ===================================

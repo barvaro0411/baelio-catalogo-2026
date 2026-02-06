@@ -181,6 +181,11 @@ p {
     gap: var(--spacing-lg);
 }
 
+.mobile-menu-btn {
+    display: none;
+    /* Hidden on desktop */
+}
+
 .nav-link {
     color: var(--color-text-secondary);
     text-decoration: none;
@@ -1042,8 +1047,50 @@ p {
    Responsive Design
    =================================== */
 @media (max-width: 768px) {
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-btn {
+        display: block;
+        /* Show hamburger */
+        background: none;
+        border: none;
+        color: var(--color-accent-gold);
+        font-size: 1.8rem;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
     .nav {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Hidden off-screen */
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(15px);
+        padding: 80px 20px;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav.active {
+        right: 0;
+        /* Slide in */
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: white;
+    }
+
+    .header-content {
+        position: relative;
     }
 
     .hero {
