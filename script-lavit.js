@@ -290,5 +290,71 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
+
+    // ===================================
+    // Interactive Features (Mobile Menu & Scroll)
+    // ===================================
+
+    // 1. Mobile Menu Logic
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+
+    if (menuBtn && nav) {
+        // Toggle Menu
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nav.classList.toggle('active');
+            menuBtn.innerHTML = nav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuBtn.innerHTML = '☰';
+            });
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('active') && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
+                nav.classList.remove('active');
+                menuBtn.innerHTML = '☰';
+            }
+        });
+    }
+
+    // 2. Scroll Animation (Intersection Observer)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    setTimeout(() => {
+        const elements = document.querySelectorAll('.product-card, .footer-section, .hero-content');
+        elements.forEach(el => {
+            el.classList.add('fade-in-section');
+            observer.observe(el);
+        });
+    }, 100);
+
+    // 3. Parallax Effect
+    window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            const scrolled = window.scrollY;
+            hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+        }
+    });
 });
 
