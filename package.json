@@ -1,0 +1,24 @@
+{
+  "name": "catalogo-perfumes",
+  "version": "1.0.0",
+  "description": "Bienvenido al repositorio oficial del **Catálogo Digital de Perfumes BAELIO 2026**.\r Esta aplicación web progresiva presenta nuestra exclusiva colección de fragancias organizadas por categorías, con un diseño premium e interactivo.",
+  "main": "script-hombre.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barvaro0411/baelio-catalogo-2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/barvaro0411/baelio-catalogo-2026/issues"
+  },
+  "homepage": "https://github.com/barvaro0411/baelio-catalogo-2026#readme",
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

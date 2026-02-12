@@ -1,0 +1,626 @@
+/* ===================================
+   BAELIO 2026 — Premium Visual Effects
+   Glassmorphism, animations, shimmer,
+   glow, noise, and micro-interactions.
+   =================================== */
+
+/* ─── Animated Gradient Hero Background ─── */
+.hero {
+    background:
+        linear-gradient(135deg,
+            #0a0a0a 0%,
+            #1a0f2e 25%,
+            #0d1117 50%,
+            #1a0a1e 75%,
+            #0a0a0a 100%);
+    background-size: 400% 400%;
+    animation: heroGradientShift 15s ease infinite;
+}
+
+@keyframes heroGradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    75% {
+        background-position: 0% 100%;
+    }
+}
+
+.hero-overlay {
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* ─── Glassmorphism Header ─── */
+.header {
+    background: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Animated Gradient Text ─── */
+.hero-title,
+.section-title {
+    background: linear-gradient(90deg,
+            #d4af37 0%,
+            #f0d878 20%,
+            #e6b8a2 40%,
+            #d4af37 60%,
+            #c9a227 80%,
+            #d4af37 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 4s linear infinite;
+}
+
+@keyframes shimmerText {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* ─── Glowing Border on Cards ─── */
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+            rgba(212, 175, 55, 0) 0%,
+            rgba(212, 175, 55, 0.15) 50%,
+            rgba(212, 175, 55, 0) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+/* Dynamic light reflection on hover */
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%),
+            rgba(212, 175, 55, 0.06) 0%,
+            transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+.product-card:hover::after {
+    opacity: 1;
+}
+
+/* ─── Scroll Reveal Animations ─── */
+.reveal-ready {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-ready.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays for filter buttons */
+.filter-btn.reveal-ready {
+    transition-delay: 0.05s;
+}
+
+.filter-btn.reveal-ready:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.filter-btn.reveal-ready:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+.filter-btn.reveal-ready:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+.filter-btn.reveal-ready:nth-child(5) {
+    transition-delay: 0.25s;
+}
+
+/* Product cards staggered */
+.product-card.reveal-ready:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.product-card.reveal-ready:nth-child(2) {
+    transition-delay: 0.06s;
+}
+
+.product-card.reveal-ready:nth-child(3) {
+    transition-delay: 0.12s;
+}
+
+.product-card.reveal-ready:nth-child(4) {
+    transition-delay: 0.18s;
+}
+
+.product-card.reveal-ready:nth-child(5) {
+    transition-delay: 0.24s;
+}
+
+.product-card.reveal-ready:nth-child(6) {
+    transition-delay: 0.3s;
+}
+
+.product-card.reveal-ready:nth-child(n+7) {
+    transition-delay: 0.35s;
+}
+
+/* ─── Button Ripple Effect ─── */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.3);
+    animation: rippleExpand 0.6s ease-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes rippleExpand {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* ─── Shine Sweep on Product Image ─── */
+.product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 70%);
+    transform: translateX(-100%);
+    transition: none;
+    pointer-events: none;
+}
+
+.product-card:hover .product-image::after {
+    animation: shineSweep 0.8s ease forwards;
+}
+
+@keyframes shineSweep {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ─── Glassmorphism Product Modal ─── */
+.product-modal-content {
+    background: rgba(20, 20, 20, 0.85) !important;
+    backdrop-filter: blur(30px) saturate(1.4);
+    -webkit-backdrop-filter: blur(30px) saturate(1.4);
+    border: 1px solid rgba(212, 175, 55, 0.15) !important;
+}
+
+/* ─── Gold Shimmer on Nav Links ─── */
+.nav-link.active {
+    background: linear-gradient(90deg, #d4af37, #f0d878, #d4af37);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 3s linear infinite;
+}
+
+/* ─── Pulsing Cart/Wishlist Buttons ─── */
+.cart-float-btn,
+.wishlist-float-btn {
+    animation: subtlePulse 3s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 4px 25px rgba(212, 175, 55, 0.4);
+    }
+}
+
+/* ─── Hero Buttons Glow ─── */
+.btn-primary {
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    box-shadow:
+        0 6px 25px rgba(212, 175, 55, 0.5),
+        0 0 40px rgba(212, 175, 55, 0.2);
+    transform: translateY(-3px);
+}
+
+.btn-secondary:hover {
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+/* ─── Subtle Noise Texture Overlay ─── */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ─── Enhanced Scrollbar ─── */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #d4af37, #8b7535);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #f0d878, #d4af37);
+}
+
+/* ─── Focus Ring Animation ─── */
+*:focus-visible {
+    outline: 2px solid rgba(212, 175, 55, 0.6);
+    outline-offset: 3px;
+    animation: focusPulse 1.5s ease infinite;
+}
+
+@keyframes focusPulse {
+
+    0%,
+    100% {
+        outline-color: rgba(212, 175, 55, 0.6);
+    }
+
+    50% {
+        outline-color: rgba(212, 175, 55, 0.2);
+    }
+}
+
+/* ─── Animated Season Chips ─── */
+.season-chip {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.season-chip:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.season-chip.active {
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+/* ─── Advanced Filter Tags (Collapsible) ─── */
+.advanced-filters-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+}
+
+.advanced-filters-scroll {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 4px;
+    width: 100%;
+    justify-content: center;
+    max-height: 76px;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advanced-filters-scroll.expanded {
+    max-height: 600px;
+}
+
+.filters-toggle-btn {
+    display: block;
+    margin: 4px auto 0;
+    padding: 4px 16px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+    color: var(--color-accent-gold);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+.filters-toggle-btn:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.advanced-filters-scroll .filter-chip {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 4px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.05);
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.advanced-filters-scroll .filter-chip:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-accent-gold);
+}
+
+.advanced-filters-scroll .filter-chip.active {
+    background: var(--gradient-primary);
+    color: var(--color-bg-primary);
+    border-color: transparent;
+    font-weight: 600;
+}
+
+/* ─── Breadcrumb Fade-in ─── */
+#breadcrumbs {
+    animation: fadeSlideDown 0.5s ease 0.3s backwards;
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── Back-to-Top Bounce ─── */
+.back-to-top-btn {
+    animation: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.back-to-top-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* ─── Loading Entrance for Page ─── */
+body {
+    animation: pageEntrance 0.8s ease;
+}
+
+@keyframes pageEntrance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ─── Enhanced Toast ─── */
+.toast.show {
+    animation: toastSlideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes toastSlideUp {
+    from {
+        transform: translateX(-50%) translateY(30px) scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* ─── Wishlist Heart Animation ─── */
+.wishlist-btn.active {
+    animation: heartBeat 0.6s ease;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    75% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ─── Pagination Hover ─── */
+.pagination-btn {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.pagination-btn:hover:not(.disabled):not(.active) {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+/* ─── Product Name on Card ─── */
+.product-name {
+    transition: color 0.3s ease;
+}
+
+.product-card:hover .product-name {
+    background: linear-gradient(90deg, #d4af37, #f0d878);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ─── Modal Open/Close ─── */
+.product-modal[style*="display: flex"] .product-modal-overlay {
+    animation: overlayFadeIn 0.3s ease;
+}
+
+@keyframes overlayFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.product-modal[style*="display: flex"] .product-modal-content {
+    animation: modalEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ─── Mobile Optimizations ─── */
+@media (max-width: 768px) {
+
+    /* Disable heavy effects on mobile for performance */
+    .product-card::after,
+    .product-card::before {
+        display: none;
+    }
+
+    #cursor-glow {
+        display: none !important;
+    }
+
+    .hero {
+        animation-duration: 20s;
+        /* Slower on mobile */
+    }
+}
+
+/* ─── Reduced Motion Support ─── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal-ready {
+        opacity: 1;
+        transform: none;
+    }
+
+    #particle-canvas {
+        display: none !important;
+    }
+}

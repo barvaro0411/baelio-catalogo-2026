@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://baelio-catalogo-2026.vercel.app/sitemap.xml

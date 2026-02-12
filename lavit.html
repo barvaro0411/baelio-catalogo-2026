@@ -5,116 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="BAELIO 2026 - Lavit Parfums. Descubre nuestra colección exclusiva de 66 fragancias femeninas premium.">
-    <title>Lavit Parfums - BAELIO 2026</title>
+        content="BAELIO 2026 - Lavit Body Splash. Colonias refrescantes en tamaño 210ml: Pink Chiffon, Rock in Rio y más.">
+    <title>Lavit Body Splash - BAELIO 2026</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Styles -->
+    <link rel="canonical" href="https://baelio-catalogo-2026.vercel.app/lavit.html" />
+    <meta property="og:title" content="Lavit Body Splash | BAELIO 2026" />
+    <meta property="og:description"
+        content="Colonias refrescantes Lavit. Pink Chiffon, Rock in Rio, Black Raspberry y más." />
+    <meta property="og:image" content="https://baelio-catalogo-2026.vercel.app/images/women.png" />
+    <meta property="og:url" content="https://baelio-catalogo-2026.vercel.app/lavit.html" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="robots" content="index, follow" />
+
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="visual-effects.css">
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>BAELIO</h1>
-                    <span class="logo-subtitle">2026</span>
-                    <span class="logo-subtitle">2026</span>
-                </div>
-                <button class="mobile-menu-btn">☰</button>
-                <nav class="nav">
-                    <a href="index.html" class="nav-link">Inicio</a>
-                    <a href="mujer.html" class="nav-link">Mujer</a>
-                    <a href="hombre.html" class="nav-link">Hombre</a>
-                    <a href="premium.html" class="nav-link">Premium</a>
-                    <a href="teen.html" class="nav-link">Teen</a>
-                    <a href="lavit.html" class="nav-link active">Lavit</a>
-                    <a href="sol.html" class="nav-link">Lavit Sol</a>
-                    <a href="index.html#contacto" class="nav-link">Contacto</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <header id="site-header" class="header"></header>
+    <div id="breadcrumbs"></div>
 
-    <!-- Hero Section -->
     <section class="hero hero-small">
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h2 class="hero-title">Lavit Parfums</h2>
-                <p class="hero-subtitle">6 fragancias frescas y tropicales - Body Splash Collection</p>
+                <h2 class="hero-title">Lavit Body Splash</h2>
+                <p class="hero-subtitle">Colonias refrescantes para cada momento</p>
             </div>
         </div>
     </section>
 
-    <!-- Catalog Section -->
     <section id="catalogo" class="catalog">
         <div class="container">
-            <!-- Search Controls -->
             <div class="controls">
                 <div class="search-container">
-                    <input type="text" id="searchInput" class="search-input"
-                        placeholder="Buscar por código o nombre...">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Buscar por código o nombre..."
+                        aria-label="Buscar productos Lavit">
                     <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
+                        stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
                     </svg>
                 </div>
             </div>
 
-            <!-- Products Grid -->
-            <div id="productsGrid" class="products-grid">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-
-            <!-- No Results Message -->
-            <div id="noResults" class="no-results" style="display: none;">
+            <div id="productsGrid" class="products-grid" role="list" aria-label="Lavit Body Splash"></div>
+            <div id="noResults" class="no-results" style="display: none;" role="status">
                 <p>No se encontraron productos que coincidan con tu búsqueda.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contacto" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">BAELIO</h3>
-                    <p class="footer-text">Tu destino para fragancias premium</p>
-                </div>
+    <footer id="site-footer" class="footer"></footer>
 
-                <div class="footer-section">
-                    <h4 class="footer-subtitle">Contacto</h4>
-                    <p class="footer-text">WhatsApp: <a href="https://wa.me/1234567890" class="footer-link">+1 234 567
-                            890</a></p>
-                    <p class="footer-text">Email: <a href="mailto:info@baelio.com"
-                            class="footer-link">info@baelio.com</a></p>
-                </div>
-
-                <div class="footer-section">
-                    <h4 class="footer-subtitle">Horario</h4>
-                    <p class="footer-text">Lunes a Viernes: 9:00 - 18:00</p>
-                    <p class="footer-text">Sábados: 10:00 - 14:00</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 BAELIO. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Script -->
-    <script src="script-lavit.js"></script>
+    <script src="products-data.js"></script>
+    <script src="image-utils.js"></script>
+    <script src="components.js"></script>
+    <script src="cart.js"></script>
+    <script src="wishlist.js"></script>
+    <script src="filters.js"></script>
+    <script src="app.js"></script>
+    <script src="visual-effects.js"></script>
 </body>
 
 </html>

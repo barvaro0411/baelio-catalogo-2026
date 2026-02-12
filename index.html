@@ -5,47 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="BAELIO 2026 - Catálogo completo de perfumes premium. Descubre nuestra colección de fragancias de mujer, hombre, líneas premium y juveniles.">
-    <meta name="keywords"
-        content="perfumes, fragancias, BAELIO, catálogo, perfumes premium, Black Parfums, Red Parfums">
-    <meta name="author" content="BAELIO">
+        content="BAELIO 2026 - Catálogo premium de perfumes. Más de 150 fragancias exclusivas: Mujer, Hombre, Premium, Teen, Lavit y Sol de Janeiro.">
     <title>BAELIO 2026 - Catálogo de Perfumes Premium</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
+    <link rel="canonical" href="https://baelio-catalogo-2026.vercel.app/" />
+    <meta property="og:title" content="BAELIO 2026 — Catálogo de Perfumes Premium" />
+    <meta property="og:description"
+        content="Más de 150 fragancias exclusivas. Chanel, Dior, Carolina Herrera, Tom Ford y más." />
+    <meta property="og:image" content="https://baelio-catalogo-2026.vercel.app/images/women.png" />
+    <meta property="og:url" content="https://baelio-catalogo-2026.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="robots" content="index, follow" />
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="visual-effects.css">
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>BAELIO</h1>
-                    <span class="logo-subtitle">2026</span>
-                    <span class="logo-subtitle">2026</span>
-                </div>
-                <button class="mobile-menu-btn">☰</button>
-                <nav class="nav">
-                    <a href="index.html" class="nav-link">Inicio</a>
-                    <a href="mujer.html" class="nav-link">Mujer</a>
-                    <a href="hombre.html" class="nav-link">Hombre</a>
-                    <a href="premium.html" class="nav-link">Premium</a>
-                    <a href="teen.html" class="nav-link">Teen</a>
-                    <a href="lavit.html" class="nav-link">Lavit</a>
-                    <a href="sol.html" class="nav-link">Lavit Sol</a>
-                    <a href="index.html#contacto" class="nav-link">Contacto</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <!-- Header (injected by components.js) -->
+    <header id="site-header" class="header"></header>
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
@@ -70,7 +59,7 @@
 
             <!-- Filter & Search Controls -->
             <div class="controls">
-                <div class="filter-buttons">
+                <div class="filter-buttons" role="group" aria-label="Filtrar por categoría">
                     <button class="filter-btn active" data-category="all">Todos</button>
                     <button class="filter-btn" data-category="mujer">Mujer</button>
                     <button class="filter-btn" data-category="hombre">Hombre</button>
@@ -81,10 +70,10 @@
                 </div>
 
                 <div class="search-container">
-                    <input type="text" id="searchInput" class="search-input"
-                        placeholder="Buscar por código o nombre...">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Buscar por código o nombre..."
+                        aria-label="Buscar productos">
                     <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
+                        stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
                     </svg>
@@ -92,12 +81,12 @@
             </div>
 
             <!-- Products Grid -->
-            <div id="productsGrid" class="products-grid">
+            <div id="productsGrid" class="products-grid" role="list" aria-label="Lista de productos">
                 <!-- Products will be dynamically inserted here -->
             </div>
 
             <!-- No Results Message -->
-            <div id="noResults" class="no-results" style="display: none;">
+            <div id="noResults" class="no-results" style="display: none;" role="status">
                 <p>No se encontraron productos que coincidan con tu búsqueda.</p>
             </div>
         </div>
@@ -110,7 +99,7 @@
                 <h2 class="section-title">Sobre BAELIO</h2>
                 <p class="about-text">
                     En BAELIO, nos especializamos en ofrecer las fragancias más exclusivas y deseadas del mercado.
-                    Nuestro catálogo 2026 cuenta con más de 139 perfumes cuidadosamente seleccionados, desde
+                    Nuestro catálogo 2026 cuenta con más de 150 perfumes cuidadosamente seleccionados, desde
                     clásicos atemporales hasta las últimas tendencias en perfumería premium.
                 </p>
                 <p class="about-text">
@@ -121,38 +110,33 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contacto" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">BAELIO</h3>
-                    <p class="footer-text">Tu destino para fragancias premium</p>
-                </div>
+    <!-- Footer (injected by components.js) -->
+    <footer id="site-footer" class="footer"></footer>
 
-                <div class="footer-section">
-                    <h4 class="footer-subtitle">Contacto</h4>
-                    <p class="footer-text">WhatsApp: <a href="https://wa.me/1234567890" class="footer-link">+1 234 567
-                            890</a></p>
-                    <p class="footer-text">Email: <a href="mailto:info@baelio.com"
-                            class="footer-link">info@baelio.com</a></p>
-                </div>
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "BAELIO",
+        "description": "Catálogo premium de perfumes 2026. Más de 150 fragancias exclusivas.",
+        "url": "https://baelio-catalogo-2026.vercel.app",
+        "image": "https://baelio-catalogo-2026.vercel.app/images/women.png",
+        "telephone": "+1234567890",
+        "email": "info@baelio.com",
+        "openingHours": "Mo-Fr 09:00-18:00, Sa 10:00-14:00"
+    }
+    </script>
 
-                <div class="footer-section">
-                    <h4 class="footer-subtitle">Horario</h4>
-                    <p class="footer-text">Lunes a Viernes: 9:00 - 18:00</p>
-                    <p class="footer-text">Sábados: 10:00 - 14:00</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 BAELIO. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Script -->
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="products-data.js"></script>
+    <script src="image-utils.js"></script>
+    <script src="components.js"></script>
+    <script src="cart.js"></script>
+    <script src="wishlist.js"></script>
+    <script src="filters.js"></script>
+    <script src="app.js"></script>
+    <script src="visual-effects.js"></script>
 </body>
 
 </html>
