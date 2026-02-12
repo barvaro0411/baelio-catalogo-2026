@@ -92,7 +92,7 @@ function injectFooter() {
             </div>
             <div class="footer-section">
                 <h4 class="footer-subtitle">Contacto</h4>
-                <p class="footer-text">WhatsApp: <a href="https://wa.me/${window.WHATSAPP_NUMBER || '1234567890'}" class="footer-link">+1 234 567 890</a></p>
+                <p class="footer-text">WhatsApp: <a href="https://wa.me/${window.WHATSAPP_NUMBER || '56966221297'}" class="footer-link">+56 9 6622 1297</a></p>
                 <p class="footer-text">Email: <a href="mailto:info@baelio.com" class="footer-link">info@baelio.com</a></p>
             </div>
             <div class="footer-section">

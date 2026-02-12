@@ -198,4 +198,4 @@ window.getProductImage = function (category) {
 };
 
 // ─── Helper: WhatsApp contact ───
-window.WHATSAPP_NUMBER = '1234567890'; // TODO: Replace with real number
+window.WHATSAPP_NUMBER = '56966221297';

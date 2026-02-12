@@ -142,7 +142,7 @@ function checkoutWhatsApp() {
 
     message += "\n¿Podrían indicarme el total y los medios de pago?";
 
-    const phoneNumber = '1234567890'; // Replace with real number
+    const phoneNumber = '56966221297';
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 }
